@@ -1,0 +1,5 @@
+---
+- name: Molecule test of apache
+  hosts: all
+  roles:
+    - role: kirikae.apache

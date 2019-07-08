@@ -1,0 +1,8 @@
+---
+- name: Run the common stuff
+  hosts: all
+  gather_facts: false
+  become: true
+
+  roles:
+    - role: common

@@ -1,0 +1,27 @@
+---
+# tasks file for kirikae.tomcat
+
+- name: Install the required packages
+  package:
+    name:
+      - tomcat
+    state: present
+
+- name: Enable Tomcat on boot
+  service:
+    name: tomcat
+    enabled: true
+    state: started
+
+- name: Create Ansible Tomcat dir
+  file:
+    path: /usr/share/tomcat/webapps/ROOT
+    state: directory
+
+- name: Apply the Tomcat index.html
+  template:
+    src: index.html.j2
+    dest: /usr/share/tomcat/webapps/ROOT/index.html
+    mode: 0644
+  notify:
+    - restart tomcat

@@ -1,0 +1,8 @@
+---
+- name: Deploy HA Proxy
+  hosts: frontends
+  gather_facts: true
+  become: true
+
+  roles:
+    - role: haproxy

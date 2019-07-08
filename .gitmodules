@@ -1,0 +1,3 @@
+[submodule "bad-ansible"]
+	path = bad-ansible
+	url = https://github.com/tonykay/bad-ansible.git

@@ -1,0 +1,4 @@
+---
+- import_playbook: haproxy.yml
+- import_playbook: tomcat.yml
+- import_playbook: postgres.yml

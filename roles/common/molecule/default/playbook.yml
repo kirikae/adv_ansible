@@ -1,0 +1,5 @@
+---
+- name: Molecule test of common
+  hosts: all
+  roles:
+    - role: kirikae.common

@@ -1,0 +1,8 @@
+---
+# tasks file for kirikae.common
+
+- name: Configure the repositories
+  copy:
+    src: open_three-tier-app.repo
+    dest: /etc/yum.repos.d/open_three-tier-app.repo
+    mode: 0644

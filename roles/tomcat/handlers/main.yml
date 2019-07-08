@@ -1,0 +1,8 @@
+---
+# handlers file for kirikae.tomcat
+# TODO: Modify file or clear the contents.
+
+- name: restart tomcat
+  service:
+    name: tomcat
+    state: restarted

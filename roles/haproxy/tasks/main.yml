@@ -1,0 +1,21 @@
+---
+# tasks file for kirikae.haproxy
+
+- name: Install required packages
+  package:
+    name:
+      - httpie
+      - haproxy
+    state: present
+
+- name: Enable HA Proxy service
+  service:
+    name: haproxy
+    enabled: true
+
+- name: Configure HA Proxy
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+  notify:
+    - restart haproxy

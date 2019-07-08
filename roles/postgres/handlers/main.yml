@@ -1,0 +1,13 @@
+---
+# handlers file for kirikae.postgres
+# TODO: Modify file or clear the contents.
+
+- name: enable postgres
+  service:
+    name: postgresql
+    enabled: true
+
+- name: start postgres
+  service:
+    name: postgresql
+    state: started

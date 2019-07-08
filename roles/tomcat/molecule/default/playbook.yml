@@ -1,0 +1,5 @@
+---
+- name: Molecule test of tomcat
+  hosts: all
+  roles:
+    - role: kirikae.tomcat

@@ -1,0 +1,6 @@
+---
+# defaults file for kirikae.haproxy
+
+packages:
+  - httpie
+  - haproxy

@@ -1,0 +1,7 @@
+---
+- name: Deploy PostgreSQL
+  hosts: appdbs
+  become: true
+
+  roles:
+    - role: postgres

@@ -1,0 +1,5 @@
+---
+- name: Molecule test of postgres
+  hosts: all
+  roles:
+    - role: kirikae.postgres
