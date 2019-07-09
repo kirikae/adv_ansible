@@ -1,8 +1,10 @@
 ---
 # tasks file for kirikae.common
 
+- include_vars: vars/open_three-tier-app.yml
+
 - name: Configure the repositories
   copy:
-    src: open_three-tier-app.repo
+    content: "{{ repo_file_content }}"
     dest: /etc/yum.repos.d/open_three-tier-app.repo
     mode: 0644
