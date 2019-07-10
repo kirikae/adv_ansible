@@ -1,0 +1,16 @@
+---
+# tasks file for kirikae.osp_facts
+
+- name: Gather Instance info
+  os_server_facts:
+    cloud: ospcloud
+    region_name: RegionOne
+  register: instance_facts
+
+- name: Add hosts
+  add_host:
+    name: "{{ item['public_v4'] }}"
+    groups:
+      - "{{ item['metadata']['group'] }}"
+      - "{{ item['metadata']['deployment_name'] }}"
+  loop: "{{ instance_facts['ansible_facts']['openstack_servers'] }}"

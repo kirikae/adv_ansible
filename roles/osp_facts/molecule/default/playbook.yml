@@ -1,0 +1,5 @@
+---
+- name: Molecule test of osp_facts
+  hosts: all
+  roles:
+    - role: kirikae.osp_facts
