@@ -1,0 +1,5 @@
+---
+- name: Molecule test of install_win_ad
+  hosts: all
+  roles:
+    - role: kirikae.install_win_ad

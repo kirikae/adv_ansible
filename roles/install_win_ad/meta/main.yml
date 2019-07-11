@@ -1,0 +1,30 @@
+---
+# meta file for kirikae.install_win_ad
+
+galaxy_info:
+  role_name: install_win_ad
+  author: Kirikae
+  # TODO: Fill in description.
+  description:
+  license: MIT
+
+  min_ansible_version: 2.7
+
+  # Supported platforms: https://galaxy.ansible.com/api/v1/platforms/
+  # Please also maintain
+  # - molecule/default/molecule.yml
+  # - molecule/default/tests/*
+  platforms:
+    - name: EL
+      versions:
+        - 7
+
+    - name: Fedora
+      versions:
+        - 29
+        - 30
+
+  # TODO: Fill in tags and/or roles this one depends on.
+  galaxy_tags: []
+
+dependencies: []
