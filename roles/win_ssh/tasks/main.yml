@@ -1,7 +1,7 @@
 ---
 # tasks file for kirikae.win_ssh
 
-- name: Install multiple windows services packages
+- name: Install SSH packages
   win_chocolatey:
     name: "{{ item['package_name'] }}"
     params: "{{ item['parameters'] }}"
