@@ -29,9 +29,3 @@ ad1.5878.internal public_host_name=ad1.5878.example.opentlc.com ssh_host=ad1.587
 [support]
 support1.5878.internal ssh_host=support1.5878.internal
 support2.5878.internal ssh_host=support2.5878.internal
-
-[windows:vars]
-ansible_connection=winrm
-ansible_user=Administrator
-ansible_winrm_server_cert_validation=ignore
-ansible_become=false
