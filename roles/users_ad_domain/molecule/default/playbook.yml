@@ -1,0 +1,5 @@
+---
+- name: Molecule test of users_ad_domain
+  hosts: all
+  roles:
+    - role: kirikae.users_ad_domain

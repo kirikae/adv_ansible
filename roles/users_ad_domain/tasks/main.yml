@@ -1,0 +1,21 @@
+---
+# tasks file for kirikae.users_ad_domain
+
+- name: Create domain users group
+  win_domain_group:
+    name: "{{ item['group_name'] }}"
+    scope: "{{ item['group_scope'] }}"
+    state: present
+  loop: "{{ user_info }}"
+
+- name: Create AD user
+  win_domain_user:
+    name: "{{ item['name'] }}"
+    firstname: "{{ item['firstname'] }}"
+    surname: "{{ item['surname'] }}"
+    password: "{{ item['password'] }}"
+    state: present
+    email: "{{ item['name'] }}@{{ ad_dns_domain_name }}"
+    groups:
+      - "{{ item['group_name'] }}"
+  loop: "{{ user_info }}"
