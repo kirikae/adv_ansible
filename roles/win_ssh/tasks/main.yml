@@ -3,20 +3,20 @@
 
 - name: Install multiple windows services packages
   win_chocolatey:
-    name: '{{ item['package_name'] }}'
+    name: "{{ item['package_name'] }}"
     params: "{{ item['parameters'] }}"
     state: present
   with_items: "{{ win_services }}"
 
 - name: Restart the windows service
   win_service:
-    name: '{{ item['service_name'] }}'
+    name: "{{ item['service_name'] }}"
     state: started
   with_items: "{{ win_services }}"
 
 - name: Enable firewall for services
   win_firewall_rule:
-    name: '{{ item['service_name'] }}'
+    name: "{{ item['service_name'] }}"
     localport: "{{ item['local_port'] }}"
     protocol: "{{ item['protocol_name'] }}"
     action: allow
