@@ -1,31 +1,25 @@
-[GenericExample:vars]
-
-###########################################################################
-### Ansible Vars
-###########################################################################
-timeout=60
-ansible_become=yes
-ansible_user=ec2-user
-
-
-[GenericExample:children]
-towers
-windows
-support
-
-[towers]
-## These are the towers
-tower1.5878.internal public_host_name=tower1.5878.example.opentlc.com ssh_host=tower3.5878.internal
-tower2.5878.internal public_host_name=tower2.5878.example.opentlc.com ssh_host=tower1.5878.internal
-tower3.5878.internal public_host_name=tower3.5878.example.opentlc.com ssh_host=tower2.5878.internal
-
-
-[windows]
-## These are the activedirectory servers
-ad1.5878.internal public_host_name=ad1.5878.example.opentlc.com ssh_host=ad1.5878.example.opentlc.com
-
-
-## These are the supporthosts
+[frontends]
+[apps]
+[appdbs]
 [support]
-support1.5878.internal ssh_host=support1.5878.internal
-support2.5878.internal ssh_host=support2.5878.internal
+[windows]
+[tag_AnsibleGroup_frontends]
+[tag_AnsibleGroup_apps]
+[tag_AnsibleGroup_appdbs]
+[tag_AnsibleGroup_support]
+[tag_AnsibleGroup_windows]
+
+[frontends:children]
+tag_AnsibleGroup_frontends
+
+[apps:children]
+tag_AnsibleGroup_apps
+
+[appdbs:children]
+tag_AnsibleGroup_appdbs
+
+[support:children]
+tag_AnsibleGroup_support
+
+[windows:children]
+tag_AnsibleGroup_windows
