@@ -1,0 +1,5 @@
+---
+- name: Molecule test of win_ssh
+  hosts: all
+  roles:
+    - role: kirikae.win_ssh

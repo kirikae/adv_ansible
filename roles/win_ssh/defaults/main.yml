@@ -1,0 +1,10 @@
+---
+# defaults file for kirikae.win_ssh
+
+win_services:
+  - package_name: 'openssh'
+    service_name: 'SSHD'
+    local_port: '22'
+    protocol_name: 'tcp'
+    parameters: '/SSHServerFeature'
+
