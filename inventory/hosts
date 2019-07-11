@@ -1,21 +1,45 @@
-[frontends]
-[apps]
-[appdbs]
+[GenericExample:vars]
+
+###########################################################################
+### Ansible Vars
+###########################################################################
+timeout=60
+ansible_become=yes
+ansible_user=ec2-user
+
+
+[GenericExample:children]
+towers
+windows
+support
+
+[towers]
+## These are the towers
+tower1.5878.internal public_host_name=tower1.5878.example.opentlc.com ssh_host=tower3.5878.internal
+tower2.5878.internal public_host_name=tower2.5878.example.opentlc.com ssh_host=tower1.5878.internal
+tower3.5878.internal public_host_name=tower3.5878.example.opentlc.com ssh_host=tower2.5878.internal
+
+
+[windows]
+## These are the activedirectory servers
+ad1.5878.internal public_host_name=ad1.5878.example.opentlc.com ssh_host=ad1.5878.example.opentlc.com
+
+
+## These are the supporthosts
 [support]
-[tag_AnsibleGroup_frontends]
-[tag_AnsibleGroup_apps]
-[tag_AnsibleGroup_appdbs]
-[tag_AnsibleGroup_support]
+support1.5878.internal ssh_host=support1.5878.internal
+support2.5878.internal ssh_host=support2.5878.internal
 
-[frontends:children]
-tag_AnsibleGroup_frontends
-
-[apps:children]
-tag_AnsibleGroup_apps
-
-[appdbs:children]
-tag_AnsibleGroup_appdbs
-
-[support:children]
-tag_AnsibleGroup_support
-
+[windows:vars]
+ansible_connection=winrm
+ansible_user=Administrator
+ansible_winrm_server_cert_validation=ignore
+ansible_become=false
+ansible_password=!vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          31383364663139336563633231356264356461393635613533326665636337363263663363383664
+          3865386135393231386261633965313464383538623761360a306230303964663233333462323233
+          34353431643236323133373638653732633761626434646664346162623534643461303039623337
+          3234653436343466630a663930653163643564643230616434653834333563396533393262326335
+          33383633373664313036666231343835643165666165643663666331323639333535626439383163
+          3465373664626264393365316234353161666263343835313963
