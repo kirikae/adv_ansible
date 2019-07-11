@@ -3,3 +3,5 @@ ansible_connection: winrm
 ansible_user: Administrator
 ansible_winrm_server_cert_validation: ignore
 ansible_become: false
+
+ad_dns_domain_name: "ad1.5878.example.opentlc.com"
