@@ -1,5 +1,5 @@
 ---
 # defaults file for kirikae.install_win_ad
 
-ad_dns_domain_name: "5878.example.opentlc.com"
+ad_dns_domain_name: "ad1.5878.example.opentlc.com"
 ad_safe_mode_password: "{{ ansible_password }}"
